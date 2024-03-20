@@ -13,7 +13,7 @@ This project implements a web application for summarizing long text articles usi
 # Assumptions:
 - The frontend is designed to be simple, focusing on usability for inputting long text and displaying the summarization result.
 - The backend encapsulates the AI logic for text summarization within a single endpoint /summarize.
-- MongoDB Atlas is chosen for the database cluster for storing summarized text and insights. The results are saved with a timestamp for reference.
+- MongoDB Atlas is chosen for creating the database cluster for storing summarized text and insights. The results are saved with a timestamp for reference.
 - Transformer's model is used for text summarization.
 - The application is hosted locally using Waitress for serving the Flask app. Deployment to a cloud provider like AWS is optional and not implemented in this version.
 - The maximum and minimum word length for the summarised output is specified as `130` and `30` respectively.
