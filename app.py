@@ -7,7 +7,7 @@ from dotenv import dotenv_values, load_dotenv
 load_dotenv()
 config = dotenv_values(".env")
 os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = 0
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = "1"
 
 llm = OpenAI(temperature=0)
 

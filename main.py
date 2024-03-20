@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, render_template, request
 from summarize import text_summarize
+from waitress import serve
 from flask_pymongo import PyMongo
 import time
 import os
@@ -23,4 +24,4 @@ def summ():
     return jsonify({'summary': summary})
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=3000, debug=True, threaded=True)
+    serve(app, host="localhost", port=3000)
