@@ -4,12 +4,15 @@ from waitress import serve
 from flask_pymongo import PyMongo
 import time
 import os
+from os.path import join, dirname
 from dotenv import dotenv_values, load_dotenv
 
 app = Flask(__name__)
 
 # Access MongoDB Access cluster
-app.config['MONGO_URI'] = "mongodb+srv://pranamika:6tmIbyUsGo6D0iX3@summarizer.ev8gtlf.mongodb.net/summarizer"
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+app.config['MONGO_URI'] = os.getenv('MONGO_URI')
 
 # Setup PyMongo instance
 mongo = PyMongo(app)
