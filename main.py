@@ -4,18 +4,24 @@ from waitress import serve
 from flask_pymongo import PyMongo
 import time
 import os
+from dotenv import dotenv_values, load_dotenv
 
 app = Flask(__name__)
-# app.config['MONGO_URI'] = "mongodb://localhost:27017/summaries"
+
+# Access MongoDB Access cluster
 app.config['MONGO_URI'] = "mongodb+srv://pranamika:6tmIbyUsGo6D0iX3@summarizer.ev8gtlf.mongodb.net/summarizer"
+
+# Setup PyMongo instance
 mongo = PyMongo(app)
 
+# Our initial form page
 @app.route('/')
 def app_ui():
     return render_template('text_ui.html')
 
+# Endpoint encapsulating AI logic
 @app.route('/summarize', methods=['POST'])
-def summ():
+def summarize():
     data = request.json
     text = data.get('text', '')
     summary = text_summarize(text)
