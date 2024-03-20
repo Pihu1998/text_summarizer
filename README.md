@@ -16,7 +16,9 @@ This project implements a web application for summarizing long text articles usi
 - MongoDB Atlas is chosen for creating the database cluster for storing summarized text and insights. The results are saved with a timestamp for reference.
 - Transformer's model is used for text summarization.
 - The application is hosted locally using Waitress for serving the Flask app. Deployment to a cloud provider like AWS is optional and not implemented in this version.
-- The maximum and minimum word length for the summarised output is specified as `130` and `30` respectively.
+- The maximum and minimum word length fosr the summarised output is specified as `130` and `30` respectively.
+- Pushing `.env` file to github is usually not a good practise, but I have included it to avoid such configurations
+to be directly defined in the code itself. This is just for the sake of this assignment and the .env file just contains the mongodb URI, so should be okay.
 
 ## Prerequisites
 
