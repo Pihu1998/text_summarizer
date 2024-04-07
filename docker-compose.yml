@@ -1,0 +1,22 @@
+version: '4'
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - '3000'
+# Nginx load balancer service  
+  nginx:
+  # Build nginx container using the official nginx docker from docker hub
+    image: nginx:latest
+    # Volume for the nginx docker container
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    # Nginx service depends on the flask application (It will link flask app and nginx load balancer)  
+    depends_on:
+      - app
+    # Ports for nginx application service  
+    ports:
+    # Port for the Nginx load balancer, will run on port 80
+      - "80:80"  
+          
